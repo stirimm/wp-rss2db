@@ -23,8 +23,13 @@ class WpRss2Db(
     }
 
     private fun getNews(source: String, url: String): List<News> {
-        val content = http.getContent(url) ?: return emptyList()
-        return rss.getNewsEntries(source, content)
+        return try {
+            val content = http.getContent(url) ?: return emptyList()
+            rss.getNewsEntries(source, content)
+        } catch (e: Exception) {
+            // todo add WARN logger
+            emptyList()
+        }
     }
 
 }
