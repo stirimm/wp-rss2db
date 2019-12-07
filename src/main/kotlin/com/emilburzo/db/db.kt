@@ -6,6 +6,7 @@ import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.transactions.transaction
+import org.joda.time.DateTime
 
 /**
  * Created by emil on 07.12.2019.
@@ -44,7 +45,7 @@ class Db(
 
                 DbNews.insert {
                     it[sourceName] = newsItem.source
-                    it[publishDate] = newsItem.published
+                    it[publishDate] = DateTime(newsItem.published)
                     it[title] = newsItem.title
                     it[url] = newsItem.url
                 }

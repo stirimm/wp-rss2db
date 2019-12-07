@@ -1,6 +1,6 @@
 package com.emilburzo.service
 
-import java.time.LocalDateTime
+import java.util.*
 
 /**
  * Created by emil on 01.12.2019.
@@ -8,7 +8,7 @@ import java.time.LocalDateTime
 data class News(
     val title: String,
     val url: String,
-    val published: LocalDateTime,
+    val published: Date,
     val source: String
 )
 
