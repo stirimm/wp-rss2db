@@ -1,5 +1,7 @@
 package com.emilburzo
 
+import com.emilburzo.db.Db
+import com.rometools.rome.feed.synd.SyndEntry
 import com.rometools.rome.io.SyndFeedInput
 import com.rometools.rome.io.XmlReader
 import okhttp3.OkHttpClient
@@ -18,12 +20,7 @@ class WpRss2Db(private val db: Db) {
 
     fun run() {
         val news = NEWS_RSS_URLS
-            .map { (source, baseUrl) ->
-                val request = Request.Builder().url(baseUrl).build()
-                val result =
-                    SyndFeedInput().build(XmlReader(httpClient.newCall(request).execute().body?.byteStream()))
-                Pair(source, result.entries)
-            }
+            .map { getEntries(it.source, it.url) }
             .flatMap { (source, results) ->
                 results.map {
                     News(
@@ -38,13 +35,20 @@ class WpRss2Db(private val db: Db) {
         db.persist(news)
     }
 
+    private fun getEntries(source: String, url: String): Pair<String, List<SyndEntry>> {
+        val request = Request.Builder().url(url).build()
+        val result =
+            SyndFeedInput().build(XmlReader(httpClient.newCall(request).execute().body?.byteStream()))
+        return Pair(source, result.entries)
+    }
+
 }
 
 val NEWS_RSS_URLS = setOf(
-    Pair("emaramures", "https://www.emaramures.ro/feed/"),
-    Pair("jurnalmm", "http://jurnalmm.ro/feed/"),
-    Pair("vasiledale", "https://vasiledale.ro/feed/"),
-    Pair("ziarmm", "https://ziarmm.ro/feed/"),
-    Pair("actualmm", "http://www.actualmm.ro/feed/"),
-    Pair("directmm", "https://www.directmm.ro/feed/")
+    NewsRssUrl("emaramures", "https://www.emaramures.ro/feed/"),
+    NewsRssUrl("jurnalmm", "http://jurnalmm.ro/feed/"),
+    NewsRssUrl("vasiledale", "https://vasiledale.ro/feed/"),
+    NewsRssUrl("ziarmm", "https://ziarmm.ro/feed/"),
+    NewsRssUrl("actualmm", "http://www.actualmm.ro/feed/"),
+    NewsRssUrl("directmm", "https://www.directmm.ro/feed/")
 )

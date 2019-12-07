@@ -1,5 +1,6 @@
-package com.emilburzo
+package com.emilburzo.db
 
+import com.emilburzo.News
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
@@ -51,3 +52,4 @@ class Db(
         }
     }
 }
+
