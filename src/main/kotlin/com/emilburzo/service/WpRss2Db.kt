@@ -3,6 +3,7 @@ package com.emilburzo.service
 import com.emilburzo.db.Db
 import com.emilburzo.service.http.Http
 import com.emilburzo.service.rss.Rss
+import org.slf4j.LoggerFactory
 
 
 /**
@@ -13,6 +14,8 @@ class WpRss2Db(
     private val http: Http,
     private val rss: Rss
 ) {
+
+    private val logger = LoggerFactory.getLogger(javaClass)
 
     fun run() {
         val news = NEWS_RSS_URLS
@@ -27,7 +30,7 @@ class WpRss2Db(
             val content = http.getContent(url) ?: return emptyList()
             rss.getNewsEntries(source, content)
         } catch (e: Exception) {
-            // todo add WARN logger
+            logger.warn("error for $url: ${e.message}")
             emptyList()
         }
     }
