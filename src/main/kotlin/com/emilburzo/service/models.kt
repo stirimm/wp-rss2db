@@ -1,4 +1,4 @@
-package com.emilburzo
+package com.emilburzo.service
 
 import java.time.LocalDateTime
 
