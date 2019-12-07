@@ -1,7 +1,10 @@
 package com.emilburzo.db
 
 import com.emilburzo.service.News
-import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.SchemaUtils
+import org.jetbrains.exposed.sql.insert
+import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.transactions.transaction
 
 /**
@@ -24,9 +27,6 @@ class Db(
         )
 
         transaction {
-            // print sql to std-out
-            addLogger(StdOutSqlLogger)
-
             // create table if it doesn't already exist
             SchemaUtils.create(DbNews)
 
