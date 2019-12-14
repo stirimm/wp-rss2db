@@ -19,18 +19,18 @@ class WpRss2Db(
 
     fun run() {
         val news = NEWS_RSS_URLS
-            .map { getNews(it.source, it.url) }
+            .map { getNews(it) }
             .flatten()
 
         db.persist(news)
     }
 
-    private fun getNews(source: String, url: String): List<News> {
+    private fun getNews(newsRssUrl: NewsRssUrl): List<News> {
         return try {
-            val content = http.getContent(url) ?: return emptyList()
-            rss.getNewsEntries(source, content)
+            val content = http.getContent(newsRssUrl.url) ?: return emptyList()
+            rss.getNewsEntries(newsRssUrl, content)
         } catch (e: Exception) {
-            logger.warn("error for $url: ${e.message}")
+            logger.warn("error for ${newsRssUrl.url}: ${e.message}")
             emptyList()
         }
     }

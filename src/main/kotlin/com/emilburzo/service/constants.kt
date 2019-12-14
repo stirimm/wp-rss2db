@@ -4,10 +4,34 @@ package com.emilburzo.service
  * Created by emil on 07.12.2019.
  */
 val NEWS_RSS_URLS = setOf(
-    NewsRssUrl("emaramures", "https://www.emaramures.ro/feed/"),
-    NewsRssUrl("jurnalmm", "https://jurnalmm.ro/feed/"),
-    NewsRssUrl("vasiledale", "https://vasiledale.ro/feed/"),
-    NewsRssUrl("ziarmm", "https://ziarmm.ro/feed/"),
-    NewsRssUrl("actualmm", "https://www.actualmm.ro/feed/"),
-    NewsRssUrl("directmm", "https://www.directmm.ro/feed/")
+    NewsRssUrl(
+        source = "emaramures.ro",
+        url = "https://www.emaramures.ro/feed/",
+        spamSeparator = "[…]"
+    ),
+    NewsRssUrl(
+        source = "jurnalmm.ro",
+        url = "https://jurnalmm.ro/feed/",
+        spamSeparator = "Oferta de nerefuzat"
+    ),
+    NewsRssUrl(
+        source = "vasiledale.ro",
+        url = "https://vasiledale.ro/feed/",
+        spamSeparator = "[…]"
+    ),
+    NewsRssUrl(
+        source = "ziarmm.ro",
+        url = "https://ziarmm.ro/feed/",
+        spamSeparator = " ... "
+    ),
+    NewsRssUrl(
+        source = "actualmm.ro",
+        url = "https://www.actualmm.ro/feed/",
+        spamSeparator = "[…]"
+    ),
+    NewsRssUrl(
+        source = "directmm.ro",
+        url = "https://www.directmm.ro/feed/",
+        spamSeparator = "[…]"
+    )
 )

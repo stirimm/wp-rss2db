@@ -44,10 +44,11 @@ class Db(
                 }
 
                 DbNews.insert {
+                    it[title] = newsItem.title
+                    it[description] = newsItem.description
+                    it[url] = newsItem.url
                     it[sourceName] = newsItem.source
                     it[publishDate] = DateTime(newsItem.published)
-                    it[title] = newsItem.title
-                    it[url] = newsItem.url
                 }
             }
         }
