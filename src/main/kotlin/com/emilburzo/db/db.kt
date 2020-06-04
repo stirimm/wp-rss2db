@@ -7,6 +7,7 @@ import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.joda.time.DateTime
+import java.util.*
 
 /**
  * Created by emil on 07.12.2019.
@@ -43,12 +44,19 @@ class Db(
                     continue
                 }
 
+                val now = Date()
+                val plausiblePublishDate = if (newsItem.published.after(now)) {
+                    now
+                } else {
+                    newsItem.published
+                }
+
                 DbNews.insert {
                     it[title] = newsItem.title
                     it[description] = newsItem.description
                     it[url] = newsItem.url
                     it[sourceName] = newsItem.source
-                    it[publishDate] = DateTime(newsItem.published)
+                    it[publishDate] = DateTime(plausiblePublishDate)
                 }
             }
         }
