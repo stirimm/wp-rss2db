@@ -1,13 +1,13 @@
 package com.emilburzo.db
 
-import org.jetbrains.exposed.dao.LongIdTable
-import org.jetbrains.exposed.sql.datetime
+import org.jetbrains.exposed.sql.Table
+import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
 
 /**
  * Created by emil on 07.12.2019.
  */
-object DbNews : LongIdTable(name = "news") {
+object DbNews : Table(name = "news") {
     // timezone is lost at the moment - https://github.com/JetBrains/Exposed/issues/221
     // but since all Wordpress RSS feeds are in UTC, that's ok as they are comparable
     val publishDate = datetime(name = "publish_date").index()
