@@ -16,7 +16,7 @@ class Rss {
 
     private val logger = LoggerFactory.getLogger(javaClass)
 
-    fun getNewsEntries(newsRssUrl: NewsRssUrl, content: String): List<News> {
+    fun parseNewsEntries(newsRssUrl: NewsRssUrl, content: String): List<News> {
         val result = SyndFeedInput().build(XmlReader(content.byteInputStream()))
 
         return result.entries.map {
