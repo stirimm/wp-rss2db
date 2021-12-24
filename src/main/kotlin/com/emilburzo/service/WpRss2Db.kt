@@ -20,15 +20,13 @@ class WpRss2Db(
 
     private val logger = LoggerFactory.getLogger(javaClass)
 
-    fun run() {
-        runBlocking {
-            val news = NEWS_RSS_URLS
-                .map { async { getNews(it) } }
-                .awaitAll()
-                .flatten()
+    fun run() = runBlocking {
+        val news = NEWS_RSS_URLS
+            .map { async { getNews(it) } }
+            .awaitAll()
+            .flatten()
 
-            db.persist(news)
-        }
+        db.persist(news)
     }
 
     private suspend fun getNews(newsRssUrl: NewsRssUrl): List<News> {
