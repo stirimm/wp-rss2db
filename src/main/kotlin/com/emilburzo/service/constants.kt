@@ -33,5 +33,10 @@ val NEWS_RSS_URLS = setOf(
         source = "directmm.ro",
         url = "https://www.directmm.ro/feed/",
         spamSeparator = "[…]"
+    ),
+    NewsRssUrl(
+        source = "2mnews.ro",
+        url = "https://2mnews.ro/feed/",
+        spamSeparator = "[…]"
     )
 )
