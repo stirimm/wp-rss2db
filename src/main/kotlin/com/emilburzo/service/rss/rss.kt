@@ -21,7 +21,7 @@ class Rss {
 
         return result.entries.map {
             News(
-                title = it.title.trim(),
+                title = it.title.trim().take(100),
                 description = cleanDescription(it.description.value, newsRssUrl),
                 url = it.link,
                 published = it.publishedDate,
