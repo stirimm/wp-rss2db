@@ -5,7 +5,7 @@ import com.emilburzo.service.NewsRssUrl
 import com.rometools.rome.io.SyndFeedInput
 import com.rometools.rome.io.XmlReader
 import org.jsoup.Jsoup
-import org.jsoup.safety.Whitelist
+import org.jsoup.safety.Safelist
 import org.slf4j.LoggerFactory
 
 
@@ -31,7 +31,7 @@ class Rss {
     }
 
     private fun cleanDescription(dirtyDescriptionHtml: String, newsRssUrl: NewsRssUrl): String {
-        val cleanDescriptionHtml = Jsoup.clean(dirtyDescriptionHtml, Whitelist.none())
+        val cleanDescriptionHtml = Jsoup.clean(dirtyDescriptionHtml, Safelist.none())
         val cleanText = Jsoup.parse(cleanDescriptionHtml).wholeText().trim()
         val lastIndexOfSpam = cleanText.lastIndexOf(newsRssUrl.spamSeparator)
         return if (lastIndexOfSpam != -1) {
