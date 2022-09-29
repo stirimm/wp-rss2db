@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk
+FROM amazoncorretto:11
 
 RUN mkdir /app
 
