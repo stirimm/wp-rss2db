@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: stirimm-wp-rss2db
 spec:
-  schedule: "*/5 * * * *"
+  schedule: "*/3 * * * *"
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
