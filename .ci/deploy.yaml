@@ -5,13 +5,21 @@ metadata:
 spec:
   schedule: "*/6 * * * *"
   concurrencyPolicy: Forbid
+  activeDeadlineSeconds: 900
+  startingDeadlineSeconds: 120
+  successfulJobsHistoryLimit: 2
+  failedJobsHistoryLimit: 2
   jobTemplate:
     spec:
+      ttlSecondsAfterFinished: 3600
+      backoffLimit: 3
       template:
         spec:
+          restartPolicy: Never
           containers:
             - name: stirimm-wp-rss2db
               image: emilburzo/stirimm-wp-rss2db:latest
+              imagePullPolicy: Always
               env:
                 - name: DB_HOST
                   valueFrom:
@@ -31,4 +39,3 @@ spec:
                       name: stirimm-webapp.db
                       key: password
                       optional: false
-          restartPolicy: Never
