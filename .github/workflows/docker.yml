@@ -33,4 +33,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: emilburzo/stirimm-wp-rss2db:latest,emilburzo/stirimm-wp-rss2db:${{ github.run_number }}
+          tags: emilburzo/stirimm-wp-rss2db:latest,emilburzo/stirimm-wp-rss2db:${{ github.run_number }},emilburzo/stirimm-wp-rss2db:latest,emilburzo/stirimm-wp-rss2db:${{ env.SHORT_SHA }}
