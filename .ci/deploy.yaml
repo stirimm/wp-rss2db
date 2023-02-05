@@ -18,8 +18,8 @@ spec:
           restartPolicy: Never
           containers:
             - name: stirimm-wp-rss2db
-              image: emilburzo/stirimm-wp-rss2db:latest
-              imagePullPolicy: Always
+              image: emilburzo/stirimm-wp-rss2db:SHORT_SHA
+              imagePullPolicy: IfNotPresent
               env:
                 - name: DB_HOST
                   valueFrom:
