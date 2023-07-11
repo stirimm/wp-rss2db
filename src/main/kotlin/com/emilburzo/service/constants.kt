@@ -22,12 +22,12 @@ val NEWS_RSS_URLS = setOf(
     NewsRssUrl(
         source = "ziarmm.ro",
         url = "https://ziarmm.ro/feed/",
-        spamSeparator = " ... "
+        spamSeparator = " The post "
     ),
     NewsRssUrl(
         source = "actualmm.ro",
         url = "https://www.actualmm.ro/feed/",
-        spamSeparator = "[…]"
+        spamSeparator = " The post "
     ),
     NewsRssUrl(
         source = "directmm.ro",
@@ -47,6 +47,6 @@ val NEWS_RSS_URLS = setOf(
     NewsRssUrl(
         source = "ziaruldemaramures.ro",
         url = "https://ziaruldemaramures.ro/feed//",
-        spamSeparator = "[…]"
+        spamSeparator = " The post "
     ),
 )
