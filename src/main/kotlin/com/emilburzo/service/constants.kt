@@ -12,7 +12,7 @@ val NEWS_RSS_URLS = setOf(
     NewsRssUrl(
         source = "jurnalmm.ro",
         url = "https://jurnalmm.ro/feed/",
-        spamSeparator = "Oferta de nerefuzat"
+        spamSeparator = " Profită acum "
     ),
     NewsRssUrl(
         source = "vasiledale.ro",
