@@ -16,5 +16,6 @@ data class News(
 data class NewsRssUrl(
     val source: String,
     val url: String,
-    val spamSeparator: String
+    val spamSeparator: String,
+    val ip: String? = null,
 )

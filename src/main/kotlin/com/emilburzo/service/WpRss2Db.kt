@@ -33,7 +33,7 @@ class WpRss2Db(
         logger.info("parsing news from $newsRssUrl")
 
         return try {
-            val content = http.getContent(newsRssUrl.url) ?: return emptyList()
+            val content = http.getContent(newsRssUrl) ?: return emptyList()
             rss.parseNewsEntries(newsRssUrl, content)
         } catch (e: Exception) {
             logger.warn("error for ${newsRssUrl.url}: ${e.message}")
