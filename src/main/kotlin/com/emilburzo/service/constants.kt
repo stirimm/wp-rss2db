@@ -50,4 +50,9 @@ val NEWS_RSS_URLS = setOf(
         url = "https://ziaruldemaramures.ro/feed//",
         spamSeparator = " The post "
     ),
+    NewsRssUrl(
+        source = "24news.ro",
+        url = "https://24news.ro/feed//",
+        spamSeparator = "[…]"
+    ),
 )
