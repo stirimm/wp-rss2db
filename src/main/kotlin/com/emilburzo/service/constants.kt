@@ -70,4 +70,9 @@ val NEWS_RSS_URLS = setOf(
         url = "https://baiamaretv.ro/feed/",
         spamSeparator = "[…]"
     ),
+    NewsRssUrl(
+        source = "maramuresnonstop.ro",
+        url = "https://maramuresnonstop.ro/feed/",
+        spamSeparator = "[…]"
+    ),
 )
