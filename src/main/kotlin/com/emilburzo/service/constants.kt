@@ -37,8 +37,7 @@ val NEWS_RSS_URLS = setOf(
     NewsRssUrl(
         source = "2mnews.ro",
         url = "https://2mnews.ro/feed/",
-        spamSeparator = "[…]",
-        ip = "95.217.227.123"
+        spamSeparator = "[…]"
     ),
     NewsRssUrl(
         source = "graiul.ro",
