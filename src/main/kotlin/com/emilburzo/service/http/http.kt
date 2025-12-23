@@ -5,12 +5,17 @@ import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.slf4j.LoggerFactory
+import java.util.concurrent.TimeUnit
 
 /**
  * Created by emil on 07.12.2019.
  */
 
-val httpClient = OkHttpClient()
+val httpClient = OkHttpClient.Builder()
+    .connectTimeout(30, TimeUnit.SECONDS)
+    .readTimeout(30, TimeUnit.SECONDS)
+    .writeTimeout(30, TimeUnit.SECONDS)
+    .build()
 
 class Http {
 
