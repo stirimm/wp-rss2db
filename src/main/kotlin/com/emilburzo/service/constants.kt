@@ -74,4 +74,9 @@ val NEWS_RSS_URLS = setOf(
         url = "https://maramuresnonstop.ro/feed/",
         spamSeparator = "[…]"
     ),
+    NewsRssUrl(
+        source = "sasaronline.ro",
+        url = "https://sasaronline.ro/feed/",
+        spamSeparator = "[…]"
+    ),
 )
