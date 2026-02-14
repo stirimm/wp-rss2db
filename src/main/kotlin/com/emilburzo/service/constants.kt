@@ -79,4 +79,9 @@ val NEWS_RSS_URLS = setOf(
         url = "https://sasaronline.ro/feed/",
         spamSeparator = "[…]"
     ),
+    NewsRssUrl(
+        source = "bunaziuamaramures.ro",
+        url = "https://bunaziuamaramures.ro/feed/",
+        spamSeparator = "[…]"
+    ),
 )
