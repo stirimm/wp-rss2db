@@ -46,12 +46,12 @@ val NEWS_RSS_URLS = setOf(
     ),
     NewsRssUrl(
         source = "ziaruldemaramures.ro",
-        url = "https://ziaruldemaramures.ro/feed//",
+        url = "https://ziaruldemaramures.ro/feed/",
         spamSeparator = " The post "
     ),
     NewsRssUrl(
         source = "24news.ro",
-        url = "https://24news.ro/feed//",
+        url = "https://24news.ro/feed/",
         spamSeparator = "[…]"
     ),
     NewsRssUrl(
@@ -82,6 +82,21 @@ val NEWS_RSS_URLS = setOf(
     NewsRssUrl(
         source = "bunaziuamaramures.ro",
         url = "https://bunaziuamaramures.ro/feed/",
+        spamSeparator = "[…]"
+    ),
+    NewsRssUrl(
+        source = "ziarmaramures.ro",
+        url = "https://ziarmaramures.ro/feed/",
+        spamSeparator = "[…]"
+    ),
+    NewsRssUrl(
+        source = "maramuresonline.ro",
+        url = "https://maramuresonline.ro/feed/",
+        spamSeparator = "[…]"
+    ),
+    NewsRssUrl(
+        source = "infomm.ro",
+        url = "https://infomm.ro/feed/",
         spamSeparator = "[…]"
     ),
 )
