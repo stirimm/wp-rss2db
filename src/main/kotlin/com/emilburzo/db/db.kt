@@ -36,7 +36,7 @@ class Db(
             val newUrls = news.map { it.url }.toSet()
             val existingUrls = DbNews.select { DbNews.url.inList(newUrls) }
                 .map { it[DbNews.url] }
-                .toSet()
+                .toMutableSet()
 
             for (newsItem in news) {
                 // skip URLs that are already in the database
@@ -58,6 +58,8 @@ class Db(
                     it[sourceName] = newsItem.source
                     it[publishDate] = DateTime(plausiblePublishDate)
                 }
+
+                existingUrls.add(newsItem.url)
             }
         }
     }
