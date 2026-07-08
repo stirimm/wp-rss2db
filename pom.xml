@@ -17,6 +17,7 @@
         <kotlin.code.style>official</kotlin.code.style>
         <junit.version>4.13.1</junit.version>
         <exposed.version>0.36.1</exposed.version>
+        <logback.version>1.5.33</logback.version>
         <main.class>com.emilburzo.main.MainKt</main.class>
     </properties>
 
@@ -87,12 +88,12 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.5.25</version>
+            <version>${logback.version}</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
-            <version>1.5.33</version>
+            <version>${logback.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
