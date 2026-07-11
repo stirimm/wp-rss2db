@@ -17,7 +17,7 @@
         <kotlin.code.style>official</kotlin.code.style>
         <junit.version>4.13.1</junit.version>
         <exposed.version>0.36.1</exposed.version>
-        <logback.version>1.5.33</logback.version>
+        <logback.version>1.5.35</logback.version>
         <main.class>com.emilburzo.main.MainKt</main.class>
     </properties>
 
